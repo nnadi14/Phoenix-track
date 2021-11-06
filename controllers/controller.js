@@ -6,9 +6,7 @@ exports.welcome = function(req, res) {
     res.render('home', {
         'heading' : 'Welcome'
     });
-
 }
-
 exports.user_login = function(req, res) {
     res.render('login', {
         'heading' : 'Login',
@@ -17,7 +15,7 @@ exports.user_login = function(req, res) {
         'alert3' : res.locals.error
     });
 }
-exports.user_post_register = function(req, res) {
+exports.after_signup = function(req, res) {
 
     const {username,email, password, password2} = req.body;
     console.log(req.body);
@@ -27,11 +25,10 @@ exports.user_post_register = function(req, res) {
     if(!username || !email || !password || !password2) {
         errors.push({msg : "Please fill in all fields"})
     }    
-    //check if password is more than 6 characters
+   
     else if(password.length < 6 ) {
         errors.push({msg : 'Ensure password is more than 6 characters'})
     }
-    //check if match
     else if(password !== password2) {
         errors.push({msg : "Passwords don't match"});
     }
@@ -40,18 +37,18 @@ exports.user_post_register = function(req, res) {
     }
 
     if(errors.length > 0 ) {
-        res.render('register', {
-            'heading' : 'register',
+        res.render('signup', {
+            'heading' : 'signup',
             'errors' : errors
             })
     } else {
-        //validation passed
+    
         User.findOne({email : email}).exec((err,user)=>{
             console.log(user);   
             if(user) {
-                errors.push({msg: 'Email already registered'});
-                res.render('register', {
-                    'heading' : 'register',
+                errors.push({msg: 'Email already signuped'});
+                res.render('signup', {
+                    'heading' : 'signup',
                     'errors' : errors
                     })
             } else {
@@ -60,14 +57,12 @@ exports.user_post_register = function(req, res) {
                     email : email,
                     password : password
                 });
-                //hash password
+              
                 bcrypt.genSalt(10,(err,salt)=> 
                 bcrypt.hash(newUser.password,salt,
                 (err,hash)=> {
                     if(err) throw err;
-                        //save pass to hash
                         newUser.password = hash;
-                        //save user
                         newUser.save()
                         .then((value)=>{
                         console.log(value)
@@ -82,10 +77,3 @@ exports.user_post_register = function(req, res) {
     }
 }
 
-exports.user_post_login = function(req, res, next) {
-    passport.authenticate('local',{
-        successRedirect : '/dashboard',
-        failureRedirect : '/users/login',
-        failureFlash : true,
-    })(req,res,next);
-};
