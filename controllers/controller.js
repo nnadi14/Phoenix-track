@@ -27,13 +27,13 @@ exports.after_signup = function(req, res) {
     }    
    
     else if(password.length < 6 ) {
-        errors.push({msg : 'Ensure password is more than 6 characters'})
+        errors.push({msg : 'Password should be more than 6 characters'})
     }
     else if(password !== password2) {
         errors.push({msg : "Passwords don't match"});
     }
     else {
-        console.log('No errors');
+        console.log('');
     }
 
     if(errors.length > 0 ) {
@@ -46,7 +46,7 @@ exports.after_signup = function(req, res) {
         User.findOne({email : email}).exec((err,user)=>{
             console.log(user);   
             if(user) {
-                errors.push({msg: 'Email already signuped'});
+                errors.push({msg: 'Email has already been used'});
                 res.render('signup', {
                     'heading' : 'signup',
                     'errors' : errors
