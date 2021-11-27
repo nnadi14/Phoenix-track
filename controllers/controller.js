@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const User = require("../models/user");
+const Goal = require("../models/goals");
 const bcrypt = require('bcrypt');
 exports.welcome = function(req, res) {
     res.render('home', {
@@ -76,4 +77,33 @@ exports.after_signup = function(req, res) {
         })
     }
 }
+exports.user_post_login = function(req, res, next) {
+    passport.authenticate('local',{
+        successRedirect : '/dashboard',
+        failureRedirect : '/users/login',
+        failureFlash : true,
+    })(req,res,next);
+}
 
+exports.dashboard = async(req, res) =>{
+    try {
+        const goal = await Goal.find({ user: req.user }).lean();
+        res.render('dashboard', {
+            'heading' : 'Dashboard',
+            'date' : new Date(),
+            user: req.user.username,
+            'alert' : res.locals.message,
+            'goals' : goal
+        })
+    } catch(err) {
+        console.error(err);
+        res.render('500');
+    }
+}
+exports.addProject = function(req, res) {
+    
+    res.render('add', {
+        'heading' : 'Add',
+        user: req.user.username
+    });
+}

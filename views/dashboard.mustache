@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body onload="loading()">
+    <div id="loader"></div>
+    <br>
+    <h1 id="fetch"></h1>
+    <div style="display:none;" id="content" class="animate-bottom">
+      
+        
+        <div class="icon-scroll" id="small-menu" onclick="openNav()">
+        <div class="icon-bar" id="myIcons">
+
+
+           <a class="active" href="#">    <i class="fas fa-home" style="color: #fff;"></i></a> 
+          <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
+            <a href="/share"><i class="fas fa-share"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/complete"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/incomplete"><i class="fas fa-spinner"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/users/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
+        </div>
+        </div>
+        <div class="main" id="myMain">
+            <h1>Hi {{user}} </h1>
+            <p>Let's check your Weekly Goals out</p>
+            {{#alert}}
+                <p class="alert">{{message}}</p>
+            {{/alert}}
+            <div class="card-cont">
+                {{#project}}
+                    <div class="card">
+                        <a href="/project/{{_id}}"><h1 class="tit">{{title}}</h1></a>
+                        <h2><strong>Module:</strong> {{module}}</h2>
+                        <h2><strong>Due Date:</strong> {{due}}</h2>
+                        <h2><strong>Status:</strong> {{status}}</h2>
+                        {{#completion}}
+                        <h2><strong>Completion Date:</strong> {{completion}}</h2>
+                        {{/completion}}
+                        <div class="remove">
+                            <a href="/delete/{{_id}}">
+                                <i class="fas fa-times fa-lg"></i>
+                            </a>
+                        </div>
+                        <div class="modify">
+                            <a href="/edit/{{_id}}">
+                                <i class="fas fa-exchange-alt fa-lg"></i>
+                            </a>
+                        </div>
+                        <div class="check">
+                            <a href="/complete/{{_id}}">
+                                <i class="fas fa-check fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                {{/project}}
+            </div>
+            {{^project}}
+            <div class="popping">
+                <i class="fas fa-tasks fa-8x" style="color: maroon;"></i> 
+                <h3 class="getting">Get started by adding some goals</h3>
+                 </div>
+            {{/project}}
+        </div>
+        <form method="post" action="/search" role="form">
+                <input type="text" style="font-family:'Advent Pro', sans-serif" placeholder="Find a goal" id="search" name="search">
+                <button type="submit" class="sea"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
+    
+    <script>
+        function openNav() {
+            document.getElementById('scroll-icon').style.display = 'none';
+            document.getElementById("myNav").style.width = "270px";
+            document.getElementById("myMain").style.marginLeft = "270px";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0";
+            document.getElementById("myMain").style.marginLeft= "100px";
+            setTimeout(() => { document.getElementById('small-menu').style.display = 'block'; }, 1000);
+        }
+
+        var myVar;
+
+        function loading() {
+            myVar = setTimeout(showPage, 1500);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("fetch").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: '32px', // default: '32px'
+            left: 'unset', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+    
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+  </script>
+</body>
+</html>

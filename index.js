@@ -9,6 +9,8 @@ const bodyParser = require('body-parser')
 const mustache = require('mustache-express');
 const MongoStore = require('connect-mongo')(session);
 
+require('./config/passport')(passport)
+
 const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB atlas Connected...'))
@@ -27,7 +29,6 @@ app.use(session({
 }));
 
 //for authentication (will be done for final web application ##incomplete)
-//require('./config/passport')(passport)
 
 app.use(passport.initialize());
 app.use(passport.session());

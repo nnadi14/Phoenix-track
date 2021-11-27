@@ -10,6 +10,8 @@ router.get('/signup',(req,res)=>{
 
 router.post('/signup', controller.after_signup);
 
+router.post('/login', controller.user_post_login);
+
 router.use(function(req, res) {
     res.status(404);
     res.render('404');
