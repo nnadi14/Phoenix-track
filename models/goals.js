@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ProjectSchema = new mongoose.Schema({
+const GoalSchema = new mongoose.Schema({
    //setting user as object id and reference
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -11,30 +11,18 @@ const ProjectSchema = new mongoose.Schema({
         required: true
     },
 
-    module: {
+   description: {
         type: String,
         required: true
     },
 
-    due: {
-        type: String,
+    started: {
+        type: Date,
         required: true
     },
 
-    status: {
-        type: String,
-        default: 'In Progress',
-        required: true
-    },
+   
 
-    milestones: {
-        type: String,
-        
-    },
-
-    completion: {
-        type: String
-    }
     
 })
-module.exports = mongoose.model('Project', ProjectSchema);
+module.exports = mongoose.model('Goal', GoalSchema);

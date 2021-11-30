@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     {{>header}}
-    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="../share.css">
 </head>
 <body onload="loading()">
     <div id="loader"></div>
-    <br>
     <h1 id="fetch"></h1>
-    <div style="display:none;" id="content" class="animate-bottom">
+     <div style="display:none;" id="content" class="animate-bottom">
       
         
         <div class="icon-scroll" id="small-menu" >
@@ -18,60 +17,47 @@
            <a class="active" href="#">    <i class="fas fa-home" style="color: #fff;"></i></a> 
           <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
             <a href="/share"><i class="fas fa-share"style="color: #fff;"></i><span>Add</span></a>
-            <a href="/completed"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/complete"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/incomplete"><i class="fas fa-spinner"style="color: #fff;"></i><span>Add</span></a>
             <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
             <a href="/users/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
         </div>
         </div>
         <div class="main" id="myMain">
-            <h1>Hi {{user}} </h1>
-            <p>Let's check your Weekly Goals out</p>
-            {{#alert}}
-                <p class="alert">{{message}}</p>
-            {{/alert}}
+            <h1>Share Goal</h1>
+            <h3 class="date">{{date}}</h3>
             <div class="card-cont">
-                {{#goals}}
+                {{#project}}
                     <div class="card">
-                        <a href="/goal/{{_id}}"><h1 class="tit">{{title}}</h1></a>
-                        <h2><strong>Goal:</strong> {{goal}}</h2>
-                        <h2><strong>Date started:</strong>{{started}} </h2>
-                         <h2><strong>Description</strong> {{description}}</h2>
-                       
-                        <div class="remove">
-                            <a href="/delete/{{_id}}">
-                                <i class="fas fa-times fa-lg"></i>
-                            </a>
-                        </div>
+                        <a href="/project/{{_id}}"><h1 class="tit">{{title}}</h1></a>
+                        <h2><strong>Module:</strong> {{module}}</h2>
+                        <h2><strong>Due Date:</strong> {{due}}</h2>
+                        <h2><strong>Status:</strong> {{status}}</h2>
+                        {{#completion}}
+                        <h2><strong>Completion Date:</strong> {{completion}}</h2>
+                        {{/completion}}
+                        
                         <div class="modify">
-                            <a href="/edit/{{_id}}">
-                                <i class="fas fa-exchange-alt fa-lg"></i>
+                            <a href="/share/{{_id}}">
+                                <i class="fas fa-share-square fa-lg"></i>
                             </a>
                         </div>
-                        <div class="check">
-                            <a href="/completed/{{_id}}">
-                                <i class="fas fa-check fa-lg"></i>
-                            </a>
-                        </div>
+                        
                     </div>
-                {{/goals}}
+                {{/project}}
             </div>
-            {{^goals}}
-
-            <div class="popping">
-                <i class="fas fa-tasks fa-8x" style="color: maroon;"></i> 
-                <h3 class="getting">Get started by adding some goals</h3>
-                 </div>
-            {{/goals}}
+            {{^project}}
+                <i class="fas fa-tasks fa-8x" style="color: #CBDAA8;"></i> 
+                <h3 class="try">Try adding some projects to see them here</h3>
+            {{/project}}
         </div>
         <form method="post" action="/search" role="form">
-                <input type="text" style="font-family:'Advent Pro', sans-serif" placeholder="Find a goal" id="search" name="search">
+                <input type="text" placeholder="Search for project" id="search" name="search">
                 <button type="submit" class="sea"><i class="fa fa-search"></i></button>
         </form>
     </div>
-
-    
     <script>
-    
+       
         var myVar;
 
         function loading() {

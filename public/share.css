@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;300;500&display=swap');
 * {
     box-sizing: border-box;
@@ -10,38 +11,23 @@ html {
 
 body {
     margin: 0;
-
-    font-family: 'Advent Pro', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
-#myIcons span {
-    font-family: 'Raleway', sans-serif;
-    font-size:14px;
-    font-weight: 400;
-    color: black;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    bottom: 0;
-    left: 47px;
-    line-height: 38px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 0;}
+
 #loader {
     position: absolute;
     left: 50%;
     top: 40%;
     z-index: 1;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     margin: -75px 0 0 -75px;
     border: 10px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid maroon;
+    border-top: 16px solid #CBDAA8;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 1s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
 
@@ -86,14 +72,71 @@ body {
     display: none;
 }
 
+.nav {
+    background-color:rgb(29, 29, 29);
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 16px;
+    transition: 1.2s;
+    transition-timing-function: ease;
+    transition-delay: 0.05s;
+}
 
+.nav h1 {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 200;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.nav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 15px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 5px;
+}
+
+.nav a:hover {
+    color: #f1f1f1;
+}
+
+.fa-user-circle {
+    position: relative;
+    top: 20px;
+    left: 90px;
+}
+
+.nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 5px;
+}
 
 .icon-scroll {
     position: relative;
-    -webkit-animation-name: animateright;
+    -webkit-animation-name: animateleft;
     -webkit-animation-duration: 1s;
-    animation-name: animateright;
+    animation-name: animateleft;
     animation-duration: 1s;
     transition-timing-function: ease;
 }
@@ -109,9 +152,9 @@ body {
 }
 
 .icon-bar {
-    width: 80px;
+    width: 70px;
     background-color:rgb(29, 29, 29);
-    height: 60%;
+    height: 70%;
     position: fixed;
     z-index: 1;
     margin-top: 60px;
@@ -128,23 +171,17 @@ body {
     text-align: center;
     padding: 16px;
     transition: all 0.3s ease;
-
+    color: #818181;
     font-size: 25px;
-}
-.popping h3{
-    position: relative;
- 
-    left: 40%;
-    bottom: 300px;
-    font-size: 16px;
 }
 
 .icon-bar a:hover {
-    background-color: maroon;
+    background-color: #000;
 }
-
-
-
+  
+.active {
+    background-color: #CBDAA8;
+}
 
 .main {
     margin-left: 100px;
@@ -161,14 +198,13 @@ body {
     margin: 40px auto;
 }
 
-.main p {
+.date {
     font-weight: 200;
     text-align: center;
     font-size: 0.9em;
     position: relative;
     bottom: 20px;
 }
-
 
 .fa-tasks {
     position: relative;
@@ -184,22 +220,24 @@ body {
     bottom: 280px;
 }
 
-
 .alert {
     position: relative;
     text-align: center;
     font-size: 12px;
-    color: black;
+    color: #888;
     padding: 10px 0px;
-    width: 70%;
+    background-color: #D4EDDA;
+    border-radius: 10px;
+    width: 40%;
     margin: 0 auto;
 }
+
 
 .card-cont {
     display: grid;
     width: 95%;
-    grid-template-columns: 25% 25% 25% ;
-    grid-template-rows: 310px;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 300px;
     grid-gap: 20px;
     padding: 20px 10px;
     margin: 0 auto;
@@ -210,7 +248,6 @@ body {
     transition: 0.3s;
     border-radius: 25px;
     transition: transform .2s;
-
 }
 
 .card a {
@@ -223,7 +260,6 @@ body {
     transform: scale(1.05);
 }
 
-
 .card h1 {
     font-size: 20px;
     font-weight: 500;
@@ -233,7 +269,7 @@ body {
     position: relative;
     bottom: 40px;
     padding-top: 17px;
-    background-color: maroon;
+    background-color: #CBDAA8;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
@@ -245,7 +281,6 @@ body {
     bottom: 60px;
     margin-left: 10px;
 }
-
 
 .remove {
     border: 2px solid #C33434;
@@ -273,46 +308,11 @@ body {
     cursor: pointer;
 }
 
-.fa-exchange-alt {
+.fa-share-square {
     color:  #fff;
     position: relative;
     left: 7px;
     top: 9px;
-}
-
-.remove:hover {
-    background-color: #C33434;
-    cursor: pointer;
-}
-
-.fa-times {
-    color:  #fff;
-    position: relative;
-    top: 10px;
-    left: 11px;
-}
-
-.check {
-    border: 2px solid #00AA1C;
-    width: 40px;
-    height: 40px;
-    float: right;
-    border-radius: 50%;
-    position: relative;
-    right: 15px;
-    bottom: 72px;
-}
-
-.check:hover {
-    background-color: #00AA1C;
-    cursor: pointer;
-}
-
-.fa-check {
-    color:  #fff;
-    position: relative;
-    top: 10px;
-    left: 7px;
 }
 
 form {
@@ -325,7 +325,7 @@ form {
 
 input[type=text] {
     padding: 15px;
-    font-family: '  Advent Pro', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     font-weight: 600;
@@ -339,7 +339,7 @@ input[type=text] {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 13.5px;
-    background:  maroon;
+    background:  #CBDAA8;
     color: white;
     font-size: 17px;
     border: none;
@@ -350,12 +350,15 @@ input[type=text] {
   }
   
   .sea:hover {
-    background: grey;
+    background: #333;
   }
 
 .darkmode-layer, .darkmode-toggle {
     z-index: 500;
   }
+
+
+
 
 
 

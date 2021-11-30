@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;300;500&display=swap');
 * {
     box-sizing: border-box;
     
@@ -9,7 +10,7 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Advent Pro', sans-serif;
 }
 #myIcons span {
     font-family: 'Raleway', sans-serif;
@@ -217,17 +218,21 @@ body {
 }
 
 .details h1 {
-    color: #CBDAA8;
-    font-size: 30px;
-    margin-bottom: 40px;
+    color: maroon;
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     color: #ccc;
     width: 70%;
 }
-
+input[type=date]{
+    font-family: 'Advent Pro', sans-serif;
+    margin-left: 10px;
+    
+}
 input[type=text] {
     width: 100%;
     padding: 15px 20px;
@@ -235,7 +240,7 @@ input[type=text] {
     display: block;
     background-color: #E6E6E6;
     border: 0px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Advent Pro', sans-serif;
     border-radius: 25px;
     font-weight: 600;
     outline: none;
@@ -249,11 +254,12 @@ input[type=text]:hover {
     width: 65%;
     position: relative;
     left: 10px;
+    font-family: 'Advent Pro', sans-serif;
 }
   
 input[type=submit] {
     width: 40%;
-    background-color: #CBDAA8;
+    background-color: maroon;
     color: white;
     padding: 14px 20px;
     border: none;
@@ -261,7 +267,7 @@ input[type=submit] {
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Advent Pro', sans-serif;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     margin-top: 20px;
     transition: 0.5s;

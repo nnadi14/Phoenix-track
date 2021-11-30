@@ -15,8 +15,8 @@
         <div class="icon-bar" id="myIcons">
 
 
-           <a class="active" href="#">    <i class="fas fa-home" style="color: #fff;"></i></a> 
-          <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
+            <a class="active" href="/dashboard">    <i class="fas fa-home" style="color: #fff;"></i></a> 
+            <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
             <a href="/share"><i class="fas fa-share"style="color: #fff;"></i><span>Add</span></a>
             <a href="/completed"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
             <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
@@ -24,11 +24,8 @@
         </div>
         </div>
         <div class="main" id="myMain">
-            <h1>Hi {{user}} </h1>
-            <p>Let's check your Weekly Goals out</p>
-            {{#alert}}
-                <p class="alert">{{message}}</p>
-            {{/alert}}
+           <h1>Hi {{user}} </h1>
+            <h3 style="margin-left:550px">Here are your achievements  </h3>
             <div class="card-cont">
                 {{#goals}}
                     <div class="card">
@@ -56,22 +53,19 @@
                 {{/goals}}
             </div>
             {{^goals}}
-
-            <div class="popping">
-                <i class="fas fa-tasks fa-8x" style="color: maroon;"></i> 
-                <h3 class="getting">Get started by adding some goals</h3>
-                 </div>
+         
+                <h3 class="try">You have not completed any of your goals
+                </h3>
             {{/goals}}
         </div>
         <form method="post" action="/search" role="form">
-                <input type="text" style="font-family:'Advent Pro', sans-serif" placeholder="Find a goal" id="search" name="search">
+                <input type="text" style="font-family:'Advent Pro', sans-serif" placeholder="Search for project" id="search" name="search">
                 <button type="submit" class="sea"><i class="fa fa-search"></i></button>
         </form>
     </div>
-
-    
     <script>
-    
+       
+
         var myVar;
 
         function loading() {
