@@ -164,6 +164,7 @@ exports.share = async(req, res) => {
 exports.mark_complete = async (req, res) => {
 
     try {
+        
         await Goal.updateOne({ _id: req.params.id }, {status: 'Complete'});
         req.flash('message', 'No pain no gain!'); 
         res.redirect('/dashboard');
@@ -199,3 +200,86 @@ exports.delete = async (req, res) => {
         res.render('500');
     }
 }
+exports.edit = async (req, res) => {
+    try {
+        const goal = await Goal.findOne({ _id: req.params.id });
+        res.render('edit', {
+            'heading' : 'Edit',
+            user: req.user.username,
+           goal
+        })
+    } catch(err) {
+        console.log(err);
+        res.render('500');
+    }
+}
+
+exports.update = async (req, res) => {
+
+    try {
+        let goal = await Goal.findById(req.params.id);
+
+        goal = await Goal.findOneAndUpdate({ _id: req.params.id }, req.body, {
+            new: true,
+            runValidators: true
+    });
+    req.flash('message', 'Your project has been successfully updated!'); 
+        res.redirect('/dashboard');
+    } catch(err) {
+        console.log(err);
+        res.render('500');
+    }
+}
+exports.logout = function(req, res) {
+    req.logout();
+    req.flash('success_msg','Now logged out');
+    res.redirect('/users/login');
+}
+
+
+
+exports.share_project = async (req, res) => {
+
+    try {
+        const goal = await Goal.find({ _id: req.params.id }).lean();
+        res.render('link', {
+            'heading' : 'Share',
+            user: req.user.username,
+            goal
+        })
+    } catch (error) {
+        console.error(err);
+        res.render('500');
+    }
+}
+
+exports.project_card = async (req, res) => {
+
+    try {
+        const goal = await Goal.find({ _id: req.params.id }).lean();
+        res.render('goalShare', {
+            'heading' : 'View',
+            user: req.user.username,
+            'name': req.user.username,
+            goal
+        })
+    } catch (error) {
+        console.error(error);
+        res.render('500');
+    }
+}
+exports.search = async(req, res) =>{
+    try {
+        const goal = await Goal.find({ user: req.user, title: req.body.search }).lean();
+        res.render('search', {
+            'heading' : 'Search',
+            user: req.user.username,
+            'alert' : res.locals.message,
+            'goal' : goal
+        })
+    } catch(err) {
+        console.error(err);
+        res.render('500');
+    }
+}
+    

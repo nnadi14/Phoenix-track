@@ -16,40 +16,34 @@
 
            <a class="active" href="#">    <i class="fas fa-home" style="color: #fff;"></i></a> 
           <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
-            <a href="/share"><i class="fas fa-share"style="color: #fff;"></i><span>Add</span></a>
+            
             <a href="/complete"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
-            <a href="/incomplete"><i class="fas fa-spinner"style="color: #fff;"></i><span>Add</span></a>
+         
             <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
-            <a href="/users/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
         </div>
         </div>
         <div class="main" id="myMain">
             <h1>Share Goal</h1>
-            <h3 class="date">{{date}}</h3>
-            <div class="card-cont">
-                {{#project}}
+            
+              <div class="card-cont">
+                {{#goals}}
                     <div class="card">
-                        <a href="/project/{{_id}}"><h1 class="tit">{{title}}</h1></a>
-                        <h2><strong>Module:</strong> {{module}}</h2>
-                        <h2><strong>Due Date:</strong> {{due}}</h2>
-                        <h2><strong>Status:</strong> {{status}}</h2>
-                        {{#completion}}
-                        <h2><strong>Completion Date:</strong> {{completion}}</h2>
-                        {{/completion}}
+                        <a href="/goal/{{_id}}"><h1 class="tit">{{title}}</h1></a>
+                        <h2><strong>Goal:</strong> {{goal}}</h2>
+                        <h2><strong>Date started:</strong>{{started}} </h2>
+                         <h2><strong>Description</strong> {{description}}</h2>
+                         <h2><strong>Completed:</strong> {{date}}</h2>
+                       
                         
-                        <div class="modify">
-                            <a href="/share/{{_id}}">
-                                <i class="fas fa-share-square fa-lg"></i>
-                            </a>
-                        </div>
                         
                     </div>
-                {{/project}}
+                {{/goals}}
             </div>
-            {{^project}}
+            {{^goal}}
                 <i class="fas fa-tasks fa-8x" style="color: #CBDAA8;"></i> 
                 <h3 class="try">Try adding some projects to see them here</h3>
-            {{/project}}
+            {{/share}}
         </div>
         <form method="post" action="/search" role="form">
                 <input type="text" placeholder="Search for project" id="search" name="search">

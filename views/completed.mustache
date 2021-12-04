@@ -17,7 +17,6 @@
 
             <a class="active" href="/dashboard">    <i class="fas fa-home" style="color: #fff;"></i></a> 
             <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
-            <a href="/share"><i class="fas fa-share"style="color: #fff;"></i><span>Add</span></a>
             <a href="/completed"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
             <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
             <a href="/users/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
@@ -33,22 +32,10 @@
                         <h2><strong>Goal:</strong> {{goal}}</h2>
                         <h2><strong>Date started:</strong>{{started}} </h2>
                          <h2><strong>Description</strong> {{description}}</h2>
+                         <h2><strong>Completed:</strong> {{date}}</h2>
                        
-                        <div class="remove">
-                            <a href="/delete/{{_id}}">
-                                <i class="fas fa-times fa-lg"></i>
-                            </a>
-                        </div>
-                        <div class="modify">
-                            <a href="/edit/{{_id}}">
-                                <i class="fas fa-exchange-alt fa-lg"></i>
-                            </a>
-                        </div>
-                        <div class="check">
-                            <a href="/completed/{{_id}}">
-                                <i class="fas fa-check fa-lg"></i>
-                            </a>
-                        </div>
+                        
+                        
                     </div>
                 {{/goals}}
             </div>

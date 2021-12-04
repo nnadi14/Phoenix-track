@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;300;500&display=swap');
 * {
     box-sizing: border-box;
     
@@ -10,7 +9,6 @@ html {
 
 body {
     margin: 0;
-
     font-family: 'Advent Pro', sans-serif;
 }
 #myIcons span {
@@ -28,20 +26,21 @@ body {
     position: absolute;
     white-space: nowrap;
     width: 0;}
+
 #loader {
     position: absolute;
     left: 50%;
     top: 40%;
     z-index: 1;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     margin: -75px 0 0 -75px;
     border: 10px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid maroon;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 1s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
 
@@ -87,8 +86,7 @@ body {
 }
 
 .nav {
-    background-color:maroon;
-    color: white;
+    background-color:rgb(29, 29, 29);
     height: 100%;
     width: 0;
     position: fixed;
@@ -118,7 +116,7 @@ body {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 16px;
-    color: white;
+    color: #818181;
     display: block;
     font-weight: 400;
     margin-bottom: 15px;
@@ -133,15 +131,25 @@ body {
     color: #f1f1f1;
 }
 
+.fa-user-circle {
+    position: relative;
+    top: 20px;
+    left: 90px;
+}
 
-
-
+.nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 5px;
+}
 
 .icon-scroll {
     position: relative;
-    -webkit-animation-name: animateright;
+    -webkit-animation-name: animateleft;
     -webkit-animation-duration: 1s;
-    animation-name: animateright;
+    animation-name: animateleft;
     animation-duration: 1s;
     transition-timing-function: ease;
 }
@@ -157,9 +165,9 @@ body {
 }
 
 .icon-bar {
-    width: 80px;
+    width: 70px;
     background-color:rgb(29, 29, 29);
-    height: 60%;
+    height: 70%;
     position: fixed;
     z-index: 1;
     margin-top: 60px;
@@ -176,21 +184,13 @@ body {
     text-align: center;
     padding: 16px;
     transition: all 0.3s ease;
-
+    color: #818181;
     font-size: 25px;
-}
-.popping h3{
-    position: relative;
- 
-    left: 40%;
-    bottom: 300px;
-    font-size: 16px;
 }
 
 .icon-bar a:hover {
-    background-color: maroon;
+    background-color: #000;
 }
-
 
 
 .main {
@@ -208,7 +208,7 @@ body {
     margin: 40px auto;
 }
 
-.main p {
+.date {
     font-weight: 200;
     text-align: center;
     font-size: 0.9em;
@@ -217,10 +217,10 @@ body {
 }
 
 
-.fa-tasks {
+.fa-exclamation-circle {
     position: relative;
-    left: 43%;
-    bottom: 300px;
+    left: 44%;
+    top: 30px;
 }
 
 .try {
@@ -228,7 +228,7 @@ body {
     font-size: 20px;
     text-align: center;
     position: relative;
-    bottom: 280px;
+    top: 40px;
 }
 
 
@@ -236,19 +236,11 @@ body {
     position: relative;
     text-align: center;
     font-size: 12px;
-    color: black;
+    color: #888;
     padding: 10px 0px;
-    width: 70%;
-    margin: 0 auto;
-}
-
-.card-cont {
-    display: grid;
-    width: 95%;
-    grid-template-columns: 25% 25% 25% ;
-    grid-template-rows: 310px;
-    grid-gap: 20px;
-    padding: 20px 10px;
+    background-color: #D4EDDA;
+    border-radius: 10px;
+    width: 40%;
     margin: 0 auto;
 }
 
@@ -257,7 +249,10 @@ body {
     transition: 0.3s;
     border-radius: 25px;
     transition: transform .2s;
-
+    width: 30%;
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
 }
 
 .card a {
@@ -280,7 +275,7 @@ body {
     position: relative;
     bottom: 40px;
     padding-top: 17px;
-    background-color: maroon;
+    background-color: #CBDAA8;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
@@ -294,7 +289,7 @@ body {
 }
 
 
-.kill {
+.remove {
     border: 2px solid #C33434;
     width: 40px;
     height: 40px;
@@ -305,43 +300,42 @@ body {
     bottom: 35px;
 }
 
-.change {
-    border: 2px solid #2E4053;
+.modify {
+    border: 2px solid #CBDAA8;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-   left: 100px;
+    margin: 0 auto;
     position: relative;
     bottom: 33px;
 }
 
-.change:hover {
-    background-color:#2E4053;
+.modify:hover {
+    background-color: #CBDAA8;
     cursor: pointer;
 }
 
-.fa-edit {
-    color:white;
-    position: absolute;
+.fa-exchange-alt {
+    color:  #fff;
+    position: relative;
     left: 7px;
     top: 9px;
-   
 }
 
-.kill:hover {
+.remove:hover {
     background-color: #C33434;
     cursor: pointer;
 }
 
-.fa-trash {
+.fa-times {
     color:  #fff;
     position: relative;
     top: 10px;
-    left: 8px;
+    left: 11px;
 }
 
-.finish {
-    border: 2px solid green;
+.check {
+    border: 2px solid #00AA1C;
     width: 40px;
     height: 40px;
     float: right;
@@ -351,40 +345,17 @@ body {
     bottom: 72px;
 }
 
-.finish:hover {
+.check:hover {
     background-color: #00AA1C;
     cursor: pointer;
 }
-.share {
-    border: 2px solid goldenrod;
-    width: 40px;
-    height: 40px;
-    float: right;
-    border-radius: 50%;
-    position: relative;
-    right: 55px;
-    bottom: 72px;
-}
 
-.share:hover {
-    background-color: goldenrod;
-    cursor: pointer;
-}
-
-.fa-check-double {
+.fa-check {
     color:  #fff;
     position: relative;
     top: 10px;
     left: 7px;
 }
-.fa-share-square{
-
-    color:  #fff;
-    position: relative;
-    top: 10px;
-    left: 7px; 
-}
-
 
 form {
     width: 30%;
@@ -396,7 +367,7 @@ form {
 
 input[type=text] {
     padding: 15px;
-    font-family: '  Advent Pro', sans-serif;
+    font-family: 'Advent Pro', sans-serif;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     font-weight: 600;
@@ -410,7 +381,7 @@ input[type=text] {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 13.5px;
-    background:  maroon;
+    background:  #CBDAA8;
     color: white;
     font-size: 17px;
     border: none;
@@ -421,12 +392,10 @@ input[type=text] {
   }
   
   .sea:hover {
-    background: grey;
+    background: #333;
   }
 
 .darkmode-layer, .darkmode-toggle {
     z-index: 500;
   }
-
-
 

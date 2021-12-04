@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="../link.css">
+</head>
+<body onload="loading()">
+    <div id="loader"></div>
+    <br>
+    <h1 id="fetch">Generating share link</h1>
+    <div style="display:none;" id="content" class="animate-bottom">
+    <div class="icon-scroll" id="small-menu" >
+        <div class="icon-bar" id="myIcons">
+           <a class="active" href="#">    <i class="fas fa-home" style="color: #fff;"></i></a> 
+          <a href="/add"> <i class="fas fa-plus" style="color: #fff;"></i><span>Add</span></a>  
+            <a href="/completed"><i class="fas fa-check-double"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/settings"><i class="fas fa-cog"style="color: #fff;"></i><span>Add</span></a>
+            <a href="/logout"><i class="fas fa-sign-out-alt fa-1.8x" style="color: #fff;"></i><span>Add</span></a>
+        </div>
+        </div>
+    <div class="main" id="myMain">
+        <div class="pic"></div>
+        <div class="details">
+            {{#goal}}
+            <h1>Share link with friends</h1>
+            <input type="text" value="localhost:3000/goal/{{_id}}" id="link">
+            <div class="tooltip">
+            <button onclick="copyLink()" onmouseout="outFunc()" id="cop">
+            <span class="tooltiptext" id="myTooltip">Copy</span>
+            Copy link
+            </button>
+            </div>
+            {{/goal}}
+        </div>
+    </div>
+    </div>
+    <script>
+      
+
+        var myVar;
+
+        function loading() {
+            myVar = setTimeout(showPage, 1500);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("fetch").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }
+
+        function copyLink() {
+        /* Get the text field */
+        var copyText = document.getElementById("link");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Link copied" ;
+    }
+    function outFunc() {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copy to clipboard";
+    }
+    </script>
+   
+   
+</body>
+</html>

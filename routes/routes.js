@@ -13,8 +13,12 @@ router.get('/share', ensureAuthenticated, controller.share);
 router.get('/completed', ensureAuthenticated, controller.completed);
 router.get('/completed/:id', ensureAuthenticated, controller.mark_complete);
 router.get('/delete/:id', ensureAuthenticated, controller.delete);
-
-
+router.get('/edit/:id', ensureAuthenticated, controller.edit);
+router.post('/edit/:id', ensureAuthenticated, controller.update);
+router.get('/logout', controller.logout);
+router.get('/goal/:id', ensureAuthenticated, controller.project_card);
+router.post("/search", ensureAuthenticated, controller.search);
+router.get('/share/:id', ensureAuthenticated, controller.share_project);
 
 router.use(function(req, res) {
     res.status(404);
