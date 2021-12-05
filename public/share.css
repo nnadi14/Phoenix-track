@@ -72,65 +72,7 @@ body {
     display: none;
 }
 
-.nav {
-    background-color:rgb(29, 29, 29);
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    padding-top: 16px;
-    transition: 1.2s;
-    transition-timing-function: ease;
-    transition-delay: 0.05s;
-}
 
-.nav h1 {
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    font-weight: 200;
-    padding-top: 25px;
-    padding-bottom: 5px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.nav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 16px;
-    color: #818181;
-    display: block;
-    font-weight: 400;
-    margin-bottom: 15px;
-    width: 180px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    left: 5px;
-}
-
-.nav a:hover {
-    color: #f1f1f1;
-}
-
-.fa-user-circle {
-    position: relative;
-    top: 20px;
-    left: 90px;
-}
-
-.nav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 5px;
-}
 
 .icon-scroll {
     position: relative;
@@ -154,7 +96,7 @@ body {
 .icon-bar {
     width: 70px;
     background-color:rgb(29, 29, 29);
-    height: 70%;
+    height: 40%;
     position: fixed;
     z-index: 1;
     margin-top: 60px;

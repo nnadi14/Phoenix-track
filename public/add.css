@@ -110,7 +110,7 @@ body {
 .icon-bar {
     width: 80px;
     background-color:rgb(29, 29, 29);
-    height: 60%;
+    height: 40%;
     position: fixed;
     z-index: 1;
     margin-top: 60px;
@@ -202,12 +202,7 @@ input[type=text]:hover {
     box-shadow: 0 4px 10px 0 rgba(118,132,250,0.2);
 }
 
-#ckedit {
-    width: 65%;
-    position: relative;
-    left: 10px;
-    font-family: 'Advent Pro', sans-serif;
-}
+
   
 input[type=submit] {
     width: 40%;

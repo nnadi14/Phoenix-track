@@ -24,7 +24,7 @@ body {
     bottom: 0;
     left: 47px;
     line-height: 38px;
-   
+    overflow: hidden;
     padding: 0;
     position: absolute;
     white-space: nowrap;
@@ -116,7 +116,7 @@ body {
 .icon-bar {
     width: 80px;
     background-color:rgb(29, 29, 29);
-    height: 60%;
+    height: 40%;
     position: fixed;
     z-index: 1;
     margin-top: 60px;
