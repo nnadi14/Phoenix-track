@@ -275,7 +275,7 @@ body {
     position: relative;
     bottom: 40px;
     padding-top: 17px;
-    background-color: #CBDAA8;
+    background-color: maroon;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
@@ -301,7 +301,7 @@ body {
 }
 
 .modify {
-    border: 2px solid #CBDAA8;
+    border: 2px solid maroon;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -381,7 +381,7 @@ input[type=text] {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 13.5px;
-    background:  #CBDAA8;
+    background:  maroon;
     color: white;
     font-size: 17px;
     border: none;
@@ -395,7 +395,5 @@ input[type=text] {
     background: #333;
   }
 
-.darkmode-layer, .darkmode-toggle {
-    z-index: 500;
-  }
+
 
