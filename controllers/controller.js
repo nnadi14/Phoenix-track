@@ -123,7 +123,7 @@ exports.addGoal = function(req, res) {
     });
 }
 exports.post_goal = async(req, res) =>{
-
+    
     if(!req.body.goal) {
         res.status(400).send("Goal required");
         return;
